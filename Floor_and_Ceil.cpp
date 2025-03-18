@@ -8,19 +8,27 @@ int main()
     while(t--){
         long long x , m , n;
         cin >> x >> n >> m;
-        double s = 1.0*x;
-        double ss = s;
-        
-        int f = pow(2,m);
-        s = ceil(s/f);
-        int d = pow(2,n);
+        long long nx = x;
+        long long f,d;
+        if(m>=60){
+            f = 1LL << 60;
+        }
+        else{
+            f = 1LL << m;
+        }
+        if(n>=60){
+            d = 1LL << 60;
+        }
+        else{
+            d = 1LL << n;
+        }
+        double s = ceil(1.0*x/f);
         s = floor(s/d);
+        long long sk = (long long) s;
+        double ss = floor(1.0*nx/d);
+        ss = ceil(ss/f);
+        long long ssk = (long long) ss;
         
-        int e = pow(2,n);
-        ss = floor(ss/e);
-        int g = pow(2,m);
-        ss = ceil(ss/g);
-        
-        cout << s << " " << ss << endl;
+        cout << sk << " " << ssk << endl;
     }
 }
